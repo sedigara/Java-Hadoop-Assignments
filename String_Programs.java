@@ -178,8 +178,6 @@ public class Sort_onlength {
 }
 
 
-
-
 4) Program to check the String is palindrome or not.
 package com.string.practice;
 
