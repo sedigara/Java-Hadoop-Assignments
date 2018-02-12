@@ -1,0 +1,84 @@
+Functions that accepts argument
+val z=(x:Int,y:Int)=>{  //Z is function variable. => is transformation variable
+println(x)
+println(y)
+x+y
+}
+
+z: (Int, Int) => Int = <function2>
+
+val mul=(x:Int,y:Int)=>{  
+println(x)
+println(y)
+x*y
+}
+
+
+val sum=(x:Int,y:Int)=>{  
+println(x)
+println(y)
+x+y
+}
+
+def operation(a:Int,b:Int,fn:(Int,Int)=>Int){
+fn(a,b)
+}
+Methods----------
+def sum1(x:Int,y:Int)={
+println(x)
+println(y)
+x+y
+}
+
+
+sum1: (x: Int, y: Int)Int
+
+-------------------
+Annonymous function
+(x:Int)=>{println(x)}
+------------------------------------
+scala> val list=List("a","b")
+list: List[String] = List(a, b)
+
+
+
+scala> list.foreach(x=>println(x+10))
+a10
+b10
+
+
+Creating new list from list
+scala> list.map(x=>x+10)
+res2: List[String] = List(a10, b10)
+
+scala> val list2 =list.map(x=>x+10)
+list2: List[String] = List(a10, b10)
+
+
+To get only odd numbers
+scala> val list =(1 to 10) 
+list: scala.collection.immutable.Range.Inclusive = Range(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+
+scala> list.map(x=>x%2!=0)
+res0: scala.collection.immutable.IndexedSeq[Boolean] = Vector(true, false, true, false, true, false, true, false, true, false)
+
+scala> list.map(x=> if (x%2!=0)x)
+res1: scala.collection.immutable.IndexedSeq[AnyVal] = Vector(1, (), 3, (), 5, (), 7, (), 9, ())
+
+scala> list.filter(x=>x%2!=0)
+res2: scala.collection.immutable.IndexedSeq[Int] = Vector(1, 3, 5, 7, 9)
+
+scala> list.filterNot(x=>x%2!=0)
+res3: scala.collection.immutable.IndexedSeq[Int] = Vector(2, 4, 6, 8, 10)
+
+
+
+scala> val Student = List ((1,"Stu1","M"),(2,"stu2","F"),(3,"stu3","F"))
+Student: List[(Int, String, String)] = List((1,Stu1,M), (2,stu2,F), (3,stu3,F))
+                ^
+
+scala> val (l1,l2) = Student.partition(x=>x._3=="M")
+l1: List[(Int, String, String)] = List((1,Stu1,M))
+l2: List[(Int, String, String)] = List((2,stu2,F), (3,stu3,F))
+
+

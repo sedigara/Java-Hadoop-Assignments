@@ -1,0 +1,51 @@
+CREATE TABLE users (
+  userid INT, 
+  gender STRING, 
+  age INT,
+  occupation INT,
+  zipcode STRING
+) ROW FORMAT DELIMITED
+FIELDS TERMINATED BY '#'
+STORED AS TEXTFILE;
+
+Load data local inpath '/home/osboxes/Downloads/ml-1m/users.dat' INTO table users;
+
+
+
+CREATE EXTERNAL TABLE ratings (
+  userid INT, 
+  movieid INT,
+  rating INT, 
+  tstamp STRING
+) ROW FORMAT DELIMITED
+FIELDS TERMINATED BY '#'
+STORED AS TEXTFILE;
+
+load data inpath '/user/osboxes/movielens/ratings.dat' into table ratings;
+
+
+CREATE EXTERNAL TABLE movies (
+  movieid INT, 
+  title STRING,
+  genres ARRAY<STRING>
+) ROW FORMAT DELIMITED
+FIELDS TERMINATED BY '#'
+COLLECTION ITEMS TERMINATED BY "|"
+STORED AS TEXTFILE;
+
+load data inpath '/user/osboxes/movielens/movies.dat' into table movies;
+
+
+
+
+CREATE EXTERNAL TABLE occupations (
+  id INT,
+  occupation STRING
+) ROW FORMAT DELIMITED
+FIELDS TERMINATED BY '#'
+STORED AS TEXTFILE;
+
+
+
+
+
