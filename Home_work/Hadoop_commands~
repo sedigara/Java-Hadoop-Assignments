@@ -1,0 +1,59 @@
+1)Command to create new directory
+Command: hdfs dfs -mkdir -p  /home/osboxes/new
+
+2)Command to list the files in directory
+Command: hdfs dfs -ls [-d][-h][-R] /
+
+3)Command to create the file 
+Command: hdfs dfs -touchz /home/osboxes/new/file1.txt
+
+4)HDFS Command to check the health of the Hadoop file system.
+Command: hdfs fsck /
+
+5)Command to check the file size 
+Command: hdfs dfs -du -s <path>
+
+6)Command to view the file 
+Command: hdfs dfs -cat <file1>
+
+7)Command to remove the file 
+Command : hdfs dfs -rm /home/osboxes/new2/file2.txt
+
+8)Command to cp the files 
+Command : hdfs dfs -cp <path1> <path2>
+
+9)Command that makes the trash empty.
+Command: hdfs dfs -expunge
+
+10) Command that returns the help for an individual command.
+Usage: hdfs dfs -usage <command>
+Command: hdfs dfs -usage mkdir
+
+11)Command to change the replication factor of file 
+Command : hdfs dfs -setrep -w 3 /user/dataflair/dir1 ? when the path is dire? what if already files are present will it change its also?
+
+12)Command to  copy file from local to hdfs
+Command :hadoop fs -copyFromLocal /home/osboxes/sample.txt hdfs://localhost:9000
+
+13)hadoop fs -rm -r <path> To remove directory recursively 
+
+14)hadoop fs -test <options> To test various conditions
+
+15) Hadoop command to list the files in local
+Command : hadoop fs -ls file:///home/osboxes/sample.txt
+
+16) Command to view the hadoop supported compressed data
+hadoop fs -text file:///home/osboxes/sample.txt.gz
+
+
+
+
+
+
+MAPRED COMMANDS :
+
+1)mapred queue -list
+
+2)To list the queue ACLs, use the following command:
+
+3) for i in {1..10000};do hdfs dfs -cat /apache_hadoop.txt >> apache_hadoop_big.txt;done

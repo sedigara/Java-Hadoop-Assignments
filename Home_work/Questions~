@@ -1,0 +1,8 @@
+1) You have a file that contains 200 billion URLs. How will you find the first unique URL using Hadoop MapReduce? 
+
+
+2)The map
+output types default to the same types, so they do not need to be set if the mapper
+produces the same types as the reducer (as it does in our case). However, if they are
+different, the map output types must be set using the setMapOutputKeyClass() and
+setMapOutputValueClass() methods. how ?

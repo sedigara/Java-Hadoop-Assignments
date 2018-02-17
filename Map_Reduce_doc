@@ -1,0 +1,5 @@
+MAPREDUCE:
+1) Optimal split size is the same as the block size: it is the
+largest size of input that can be guaranteed to be stored on a single node.
+
+2)Map tasks write their output to the local disk, not to HDFS.

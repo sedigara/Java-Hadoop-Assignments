@@ -1,0 +1,122 @@
+GitHub:dorababugjntup
+
+1) Command to mount the windows and virtual box to transefer the file
+sudo mount -t vboxsf hadoop Desktop/test/
+
+2) Command to check SSH status
+sudo service ssh status
+
+3) Format namenode
+hadoop namenode -format
+
+
+4) Name node web UI
+http://localhost:50070
+
+5)Yarn web UI
+http://localhost:8088/cluster
+
+17-12-2017
+------------------------------------------------------------------------------------------------
+6) mv operation does not do data transfer it only changes the metadata : <Check for cp>
+
+
+MAPREDUCE
+
+1) programming model
+p1 f1 out1  - job -- tasks
+
+user can not control the mappers parallelism it depends on input. But user can control the reducers
+Map tasks - Transformation logic  - no of blocks
+
+Reduce task -Aggregation logic - default 1
+
+
+
+Mapper and Reduccer is key , value processing model
+
+
+TextInputFormat api will read the file and gives the key ,value pairs.
+In case of text files the key is byteoffset of line and value is line.
+shuffle+sor+group
+
+MapReduce works with rows.
+The reduce method executes number of unique keys.
+The map method executes the number of records in block.
+
+Input Format will read the block until it finds new line chanracter and it is called as one spilt(one record).
+If block last record does not end with new line charcater it will read the second block until it finds new line character into a spilt.
+So the map method will execute the number of splits.
+
+Java datatypes  - >  Hadoop datatypes
+int                   IntWritable
+float                 FloatWritable
+long                  LongWritable
+double                DoubleWriatble
+String                Text
+
+
+Use the get method to convert the hadoop datatypes to java datatypes.
+Convert the java data types to hadoop data types using constructors of hadoop datatypes.
+
+If mapper and reducer wants to communicate with each other or with other satges it communicate with context object. It contains the configuration and it is interface.
+ Map out put will store in local fs
+
+
+Hadoop serialization transfers the data from mappers to reducer.
+
+
+HDFS->InputFormat->Map Stage->shuffle+sort+group->Redue Stage->Output Format -> HDFS
+All sorting technics require the heap memory to sort the data except merge sort.
+
+WordCount Program:
+Jar file location:/home/osboxes/YARN/hadoopsw/hadoopsw/hadoop-2.7.2/share/hadoop
+common
+common/lib/
+hdfs
+mapreduce
+yarn
+
+------------------------------
+Write below classes :
+Mapper
+Reducer
+Driver ->main method
+run the progran in psudo distributed mode using Command: yarn jar Desktop/WordCount.jar com.inv.WordCountDriver /sample.txt /wordcount
+			yarn jar workspace/WordsCount/target/WordsCount-0.0.1-SNAPSHOT.jar com.inv.WordCountDriver /sample.txt /wordcount
+
+
+
+
+1) To check host names
+cat /etc/hosts
+
+2)groups of User 
+groups
+4)To check the groups of a user cat /etc/group | grep <username>
+
+
+------------------------------------------------------------------------------
+Performance improve of default map reduce framework
+1)0 reducer task
+2) Use Combiner function to do local aggregation--local reducer
+3)Increase the reducer parallelism-- partitioner patitions the kay,value pair to more than one reducer. Default partitioner is Hash Partitioner.
+
+key.hashcode%numberofreduce task
+
+4)File Compression
+--------------------------------------------------------------------------------------
+To loop the hdfs file using shell scripting.
+ for i in {1..10000};do hdfs dfs -cat /apache_hadoop.txt >> apache_hadoop_big.txt;done
+-------------------------------------------------------------------------------------
+speculative execution is to overcome from the slow running tasks 
+
+
+
+
+
+Jan-5-2018
+-----------
+
+MapReduce Joins
+
